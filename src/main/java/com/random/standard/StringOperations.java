@@ -10,15 +10,24 @@ import java.util.Date;
 public class StringOperations {
 
 	public static void main(String[] args) {
-		String all = String.join("/", "A","M","L");
+		// 用分界符分隔字符串
+		String all = String.join("/", "S","M","L");
+		// S/M/L
 		System.out.println(all);
-		 
+		
+		// 检测两个字符串是否相等,而不区分大小写,使用equalsIgnoreCase 方法
+		System.out.println("Hello".equalsIgnoreCase("hello"));
+		
 		int index = all.codePointCount(0, all.length());
 		int cp = all.codePointAt(0);
 		System.out.println(index);
 		/*
 		 * StringBuilder
 		 * 单线程 线程安全 可追加
+		 * Stringbuffer 多线程安全		线程安全		线程不安全
+		 * 	A线程:append("ab")		(ab cd)或者			acbd
+		 * 	B线程:append("cd")		(cd ab)
+		 * 						不破坏原子性、具体哪种看线程调度
 		 */
 		StringBuilder builder = new StringBuilder();
 		String str = builder.append("sss").append("aaa").toString();
