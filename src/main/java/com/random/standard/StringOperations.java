@@ -19,7 +19,7 @@ public class StringOperations {
 		System.out.println("Hello".equalsIgnoreCase("hello"));
 		
 		int index = all.codePointCount(0, all.length());
-		int cp = all.codePointAt(0);
+		// int cp = all.codePointAt(0);
 		System.out.println(index);
 		/*
 		 * StringBuilder

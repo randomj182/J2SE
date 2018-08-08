@@ -29,6 +29,7 @@ public class SystemIO {
 			}
 			System.out.println(name);
 		}
+		in.close();
 	}
 	
 	@Test
@@ -42,6 +43,7 @@ public class SystemIO {
 		while((line =br.readLine())!= null){
 			System.out.println(line);
 		}
+		br.close();
 	}
 	
 	@Test
