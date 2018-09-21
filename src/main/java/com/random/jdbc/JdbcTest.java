@@ -28,10 +28,12 @@ public class JdbcTest{
 		// 获取连接
 		connection = DriverManager.getConnection(url, username, password);
 		// 获取预编译语句
-		String sql = "INSERT INTO student(name) VALUES(?)";
+		String sql = "INSERT INTO student(id,tagno,name) VALUES(?,?,?)";
 		PreparedStatement ps = connection.prepareStatement(sql);
 		// 填写占位符
-		ps.setString(1, "ji");
+		ps.setInt(1, 7);
+		ps.setString(2, "ji");
+		ps.setString(3, "jihongli");
 		// 提交处理
 		ps.executeUpdate();
 		// 关闭资源
@@ -63,7 +65,7 @@ public class JdbcTest{
 		// 获取连接
 		connection = DriverManager.getConnection(url, username, password);
 		// 获取预编译语句
-		String sql = "SELECT id,name from student WHERE id = ?";
+		String sql = "SELECT tagno,name from student WHERE id = ?";
 		PreparedStatement ps = connection.prepareStatement(sql);
 		// 填写占位符
 		ps.setInt(1, 3);
@@ -71,9 +73,9 @@ public class JdbcTest{
 		ResultSet rs = ps.executeQuery();
 		// 提交处理
 		while(rs.next()){
-			Integer id = rs.getInt(1);
+			String tagno = rs.getString(1);
 			String name = rs.getString(2);
-			System.out.println("id:"+id + "  name:"+name);
+			System.out.println("tagno:"+tagno + "  name:"+name);
 		}
 		// 关闭资源
 		ps.close();
@@ -86,16 +88,16 @@ public class JdbcTest{
 		// 获取连接
 		connection = DriverManager.getConnection(url, username, password);
 		// 获取预编译语句
-		String sql = "SELECT id,name from student";
+		String sql = "SELECT tagno,name from student";
 		PreparedStatement ps = connection.prepareStatement(sql);
 		// 获取查询结果
 		ResultSet rs = ps.executeQuery();
 		List<String> rsList = new ArrayList<String>();
 		// 提交处理
 		while(rs.next()){
-			Integer id = rs.getInt(1);
+			String tagno = rs.getString(1);
 			String name = rs.getString(2);
-			rsList.add("id:"+id + "  name:"+name);
+			rsList.add("tagno:"+tagno + "  name:"+name);
 		}
 		for (String list : rsList) {
 			System.out.println(list);
