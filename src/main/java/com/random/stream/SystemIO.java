@@ -1,4 +1,4 @@
-package com.random.standard;
+package com.random.stream;
 
 import java.io.BufferedReader;
 import java.io.File;

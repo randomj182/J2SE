@@ -36,7 +36,7 @@ public class StringOperations {
 		System.out.printf("%,.3f￥\n",100000000.0/3.0);
 		
 		System.out.println(new Date());
-		
+		System.out.println("Abc汉字”的长度为"+"Abc汉字".length());
 	}
 
 }
